@@ -10,7 +10,7 @@ export function useFetchTasks() {
     await new Promise((resolve) => setTimeout(resolve, 500));
     const remoteTasks = await fetchTasks();
     const localTasks = remoteTasks
-      .slice(0, 9)
+      .slice(0, 10)
       .sort((a, _b) => (a.completed ? 1 : -1));
     setTasks(localTasks);
     setLoading(false);

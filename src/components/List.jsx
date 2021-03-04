@@ -1,5 +1,5 @@
 import React from "react";
-import { useFetchTasks } from "./hooks/useFetchTasks";
+import { useFetchTasks } from "../hooks/useFetchTasks";
 
 export function ToDoList() {
   const { tasks, isLoading, refetch } = useFetchTasks();
