@@ -1,11 +1,8 @@
-import React, { useReducer, useState, useEffect } from "react";
+import React, { useEffect, useReducer, useState } from "react";
 import { useFetchTasks } from "../hooks/useFetchTasks";
-import { StressBall } from "./StressBall";
-import { StressPanda } from "./StressPanda";
-import { UserMood } from "./UserMood";
-import { taskReducer } from "../store/taskReducer";
 import { taskActions } from "../store/taskActions";
-import { TopTask } from "./TopTask";
+import { taskReducer } from "../store/taskReducer";
+
 
 export function ToDoList() {
   const [fetchSize, setFetchSize] = useState(10);
@@ -54,11 +51,7 @@ export function ToDoList() {
 
   return (
     <div>
-      <h1>To Do List</h1>
-      <StressBall />
-      <StressPanda />
-      <UserMood />
-      <TopTask />
+
       <div>
         <input
           type="text"
