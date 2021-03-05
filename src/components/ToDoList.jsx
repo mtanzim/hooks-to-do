@@ -5,9 +5,11 @@ import { StressPanda } from "./StressPanda";
 import { UserMood } from "./UserMood";
 import { taskReducer } from "../store/taskReducer";
 import { taskActions } from "../store/taskActions";
+import { TopTask } from "./TopTask";
 
 export function ToDoList() {
-  const { tasks: remoteTasks, isLoading, refetch } = useFetchTasks();
+  const [fetchSize, setFetchSize] = useState(10);
+  const { tasks: remoteTasks, isLoading, refetch } = useFetchTasks(fetchSize);
   const [localTasks, dispatch] = useReducer(taskReducer, []);
   const [newTask, setNewTask] = useState("");
 
@@ -29,6 +31,7 @@ export function ToDoList() {
       },
     });
     setNewTask("");
+    setFetchSize(5);
   };
 
   const remTask = (id) => {
@@ -55,6 +58,7 @@ export function ToDoList() {
       <StressBall />
       <StressPanda />
       <UserMood />
+      <TopTask />
       <div>
         <input
           type="text"

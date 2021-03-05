@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { fetchTasks } from "../api/fetchTasks";
 
-export function useFetchTasks() {
+export function useFetchTasks(size) {
   const [tasks, setTasks] = useState([]);
   const [isLoading, setLoading] = useState(false);
 
@@ -10,7 +10,7 @@ export function useFetchTasks() {
     await new Promise((resolve) => setTimeout(resolve, 500));
     const remoteTasks = await fetchTasks();
     const localTasks = remoteTasks
-      .slice(0, 10)
+      .slice(0, size)
       .sort((a, _b) => (a.completed ? 1 : -1));
     setTasks(localTasks);
     setLoading(false);
